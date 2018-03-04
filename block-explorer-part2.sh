@@ -20,57 +20,63 @@ echo
 sudo apt-get -y install libzmq3-dev
 
 echo "---------------"
-echo "installing zcash patched bitcore"
+echo "installing koto patched bitcore"
 echo 
-npm install str4d/bitcore-node-zcash
+npm install wo01/bitcore-node-koto
 
 echo "---------------"
 echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-zcash/bin/bitcore-node create zcash-explorer
+./node_modules/bitcore-node-koto/bin/bitcore-node create koto-explorer
 
-cd zcash-explorer
+cd koto-explorer
 
 
 echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-zcash/bin/bitcore-node install str4d/insight-api-zcash str4d/insight-ui-zcash
+../node_modules/bitcore-node-koto/bin/bitcore-node install wo01/insight-api-koto wo01/insight-ui-koto
 
 
 echo "---------------"
 echo "creating config files"
 echo
 
-# point zcash at mainnet
+# point koto at mainnet
 cat << EOF > bitcore-node.json
 {
   "network": "mainnet",
   "port": 3001,
   "services": [
     "bitcoind",
-    "insight-api-zcash",
-    "insight-ui-zcash",
+    "insight-api-koto",
+    "insight-ui-koto",
     "web"
   ],
   "servicesConfig": {
     "bitcoind": {
       "spawn": {
         "datadir": "./data",
-        "exec": "zcashd"
+        "exec": "kotod"
       }
+    },
+    "insight-ui-koto": {
+      "routePrefix": "",
+      "apiPrefix": "api"
+    },
+    "insight-api-koto": {
+      "routePrefix": "api"
     }
   }
 }
 
 EOF
 
-# create zcash.conf
-cat << EOF > data/zcash.conf
-addnode=mainnet.z.cash
+# create koto.conf
+cat << EOF > data/koto.conf
 server=1
 whitelist=127.0.0.1
 txindex=1
@@ -90,5 +96,5 @@ EOF
 
 echo "---------------"
 # start block explorer
-echo "To start the block explorer, from within the zcash-explorer directory issue the command:"
-echo " nvm use v4; ./node_modules/bitcore-node-zcash/bin/bitcore-node start"
+echo "To start the block explorer, from within the koto-explorer directory issue the command:"
+echo " nvm use v4; ./node_modules/bitcore-node-koto/bin/bitcore-node start"

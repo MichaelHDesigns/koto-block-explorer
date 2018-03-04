@@ -1,11 +1,11 @@
-# zcash-block-explorer
-Script to install and setup a zcash block explorer on Ubuntu 16.04 for the zcash beta2 testnet.
+# koto-block-explorer
+Script to install and setup a koto block explorer on Ubuntu 16.04 for the koto.
 
 On a fresh Ubuntu 16.04 server, from a non-root user's home directory, run the following commands:
 ```
 sudo apt-get update
 
-wget https://raw.githubusercontent.com/radix42/zcash-block-explorer/master/block-explorer.sh
+wget https://raw.githubusercontent.com/wo01/koto-block-explorer/master/block-explorer.sh
 
 bash block-explorer.sh
 ```
