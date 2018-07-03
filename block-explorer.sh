@@ -16,19 +16,20 @@ sudo apt-get -y install \
       autoconf libtool ncurses-dev unzip git python \
       zlib1g-dev wget bsdmainutils automake curl
 
-# download koto source from fork with block explorer patches
-git clone https://github.com/wo01/koto.git
+# download koto source
+git clone https://github.com/KotoDevelopers/koto.git
 
 cd koto
 
-# switch to sprout version of source code; this will change in the future
-git checkout v1.0.14-bitcore
+# apply bitcore patch
+git checkout v1.1.0
+patch -p1 < ./zcutil/bitcore.diff
 
 # download proving parameters
 ./zcutil/fetch-params.sh
 
 # build patched koto
-./zcutil/build.sh --disable-tests -j 2
+./zcutil/build.sh -j 2
 
 # install lintian
 sudo apt-get -y install lintian
@@ -37,7 +38,7 @@ sudo apt-get -y install lintian
 ./zcutil/build-debian-package.sh
 
 # install koto
-sudo dpkg -i koto-1.0.14-*.deb
+sudo dpkg -i koto-1.1.0-*.deb
 
 echo "---------------"
 echo "installing node and npm"
