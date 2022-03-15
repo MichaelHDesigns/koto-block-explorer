@@ -26,6 +26,18 @@ sudo apt install -y libboost-system-dev libboost-filesystem-dev libboost-chrono-
   sudo chmod 0600 ./tmp.swap
   sudo swapon ./tmp.swap
 
+# download & install chia bls
+
+sudo -s
+apt-get update
+apt-get install -y curl build-essential libtool autotools-dev automake pkg-config python3 bsdmainutils cmake
+wget https://github.com/codablock/bls-signatures/archive/v20181101.zip
+unzip v20181101.zip
+cd bls-signatures-20181101
+cmake .
+make install
+cd ..
+
 # download koto source
 git clone https://github.com/HTHcoin/helpthehomelesscoin.git && cd helpthehomelesscoin && PATH=$(echo "$PATH" | sed -e 's/:\/mnt.*//g') && sudo bash -c "echo 0 > /proc/sys/fs/binfmt_misc/status" && cd depends && make -j7 && cd .. && ./autogen.sh && ./configure --prefix=/ --with-gui=no --with-incomplete-bdb --disable-tests && make -j7
 
