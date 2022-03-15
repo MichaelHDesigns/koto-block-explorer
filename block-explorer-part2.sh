@@ -22,7 +22,7 @@ sudo apt-get -y install libzmq3-dev
 echo "---------------"
 echo "installing koto patched bitcore"
 echo 
-nvm install MichaelHDesigns/bitcore-node-hth
+npm install MichaelHDesigns/bitcore-node-hth
 
 echo "---------------"
 echo "setting up bitcore"
