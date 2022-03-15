@@ -22,14 +22,14 @@ sudo apt-get -y install libzmq3-dev
 echo "---------------"
 echo "installing koto patched bitcore"
 echo 
-npm install MichaelHDesigns/bitcore-node-hth
+nvm install MichaelHDesigns/bitcore-node-hth
 
 echo "---------------"
 echo "setting up bitcore"
 echo
 
 # setup bitcore
-sudo ./node_modules/bitcore-node-hth/bin/bitcore-node create hth-explorer
+./node_modules/bitcore-node-hth/bin/bitcore-node create hth-explorer
 
 cd hth-explorer
 
@@ -38,7 +38,7 @@ echo "---------------"
 echo "installing insight UI"
 echo
 
-sudo ../node_modules/bitcore-node-hth/bin/bitcore-node install HTHcoin/insight-api HTHcoin/insight-ui
+../node_modules/bitcore-node-hth/bin/bitcore-node install HTHcoin/insight-api HTHcoin/insight-ui
 
 
 echo "---------------"
