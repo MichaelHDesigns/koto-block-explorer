@@ -5,8 +5,8 @@ On a fresh Ubuntu 16.04 server, from a non-root user's home directory, run the f
 ```
 sudo apt-get update
 
-wget https://raw.githubusercontent.com/wo01/koto-block-explorer/master/block-explorer.sh
-wget https://raw.githubusercontent.com/wo01/koto-block-explorer/master/block-explorer-part2.sh
+wget https://raw.githubusercontent.com/MichaelHDesigns/koto-block-explorer/master/block-explorer.sh
+wget https://raw.githubusercontent.com/MichaelHDesigns/koto-block-explorer/master/block-explorer-part2.sh
 
 bash block-explorer.sh
 ```
