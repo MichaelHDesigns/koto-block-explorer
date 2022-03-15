@@ -10,7 +10,7 @@ export NVM_DIR="$HOME/.nvm"
 
 
 # switch node setup with nvm
-nvm install v4
+nvm install v7
 
 echo "---------------"
 echo "installing bitcore dependencies"
