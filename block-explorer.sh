@@ -3,12 +3,12 @@
 echo "downloading part2"
 echo
 
-#wget https://raw.githubusercontent.com/wo01/koto-block-explorer/master/block-explorer-part2.sh
+#wget https://raw.githubusercontent.com/MichaelHDesigns/hth-block-explorer/master/block-explorer-part2.sh
 
 echo "---------------"
 # Install koto dependencies:
 
-echo "installing koto"
+echo "installing hth"
 echo
 
 sudo apt-get -y install \
@@ -17,9 +17,9 @@ sudo apt-get -y install \
       zlib1g-dev wget bsdmainutils automake curl
 
 # download koto source
-git clone https://github.com/KotoDevelopers/koto.git
+git clone https://github.com/HTHcoin/helpthehomelesscoin.git
 
-cd koto
+cd helpthehomelesscoin
 
 # apply bitcore patch
 git checkout v1.1.0
