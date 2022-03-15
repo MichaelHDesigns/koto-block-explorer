@@ -38,7 +38,7 @@ echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-hth/bin/bitcore-node install wo01/insight-api-koto wo01/insight-ui-koto
+../node_modules/bitcore-node-hth/bin/bitcore-node install HTHcoin/insight-api HTHcoin/insight-ui
 
 
 echo "---------------"
@@ -52,8 +52,8 @@ cat << EOF > bitcore-node.json
   "port": 3001,
   "services": [
     "helpthehomelessd",
-    "insight-api-koto",
-    "insight-ui-koto",
+    "insight-api",
+    "insight-ui",
     "web"
   ],
   "servicesConfig": {
@@ -63,11 +63,11 @@ cat << EOF > bitcore-node.json
         "exec": "helpthehomelessd"
       }
     },
-    "insight-ui-koto": {
+    "insight-ui": {
       "routePrefix": "",
       "apiPrefix": "api"
     },
-    "insight-api-koto": {
+    "insight-api": {
       "routePrefix": "api"
     }
   }
