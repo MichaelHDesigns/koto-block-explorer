@@ -29,7 +29,7 @@ echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-hth/bin/bitcore-node create hth-explorer
+sudo ./node_modules/bitcore-node-hth/bin/bitcore-node create hth-explorer
 
 cd hth-explorer
 
@@ -38,7 +38,7 @@ echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-hth/bin/bitcore-node install HTHcoin/insight-api HTHcoin/insight-ui
+sudo ../node_modules/bitcore-node-hth/bin/bitcore-node install HTHcoin/insight-api HTHcoin/insight-ui
 
 
 echo "---------------"
