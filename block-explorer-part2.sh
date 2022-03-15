@@ -22,23 +22,23 @@ sudo apt-get -y install libzmq3-dev
 echo "---------------"
 echo "installing koto patched bitcore"
 echo 
-npm install wo01/bitcore-node-koto
+npm install MichaelHDesigns/bitcore-node-hth
 
 echo "---------------"
 echo "setting up bitcore"
 echo
 
 # setup bitcore
-./node_modules/bitcore-node-koto/bin/bitcore-node create koto-explorer
+./node_modules/bitcore-node-hth/bin/bitcore-node create hth-explorer
 
-cd koto-explorer
+cd hth-explorer
 
 
 echo "---------------"
 echo "installing insight UI"
 echo
 
-../node_modules/bitcore-node-koto/bin/bitcore-node install wo01/insight-api-koto wo01/insight-ui-koto
+../node_modules/bitcore-node-hth/bin/bitcore-node install wo01/insight-api-koto wo01/insight-ui-koto
 
 
 echo "---------------"
@@ -51,16 +51,16 @@ cat << EOF > bitcore-node.json
   "network": "mainnet",
   "port": 3001,
   "services": [
-    "bitcoind",
+    "helpthehomelessd",
     "insight-api-koto",
     "insight-ui-koto",
     "web"
   ],
   "servicesConfig": {
-    "bitcoind": {
+    "helpthehomelessd": {
       "spawn": {
         "datadir": "./data",
-        "exec": "kotod"
+        "exec": "helpthehomelessd"
       }
     },
     "insight-ui-koto": {
@@ -76,7 +76,7 @@ cat << EOF > bitcore-node.json
 EOF
 
 # create koto.conf
-cat << EOF > data/koto.conf
+cat << EOF > data/helpthehomeless.conf
 server=1
 whitelist=127.0.0.1
 txindex=1
@@ -96,5 +96,5 @@ EOF
 
 echo "---------------"
 # start block explorer
-echo "To start the block explorer, from within the koto-explorer directory issue the command:"
-echo " nvm use v4; ./node_modules/bitcore-node-koto/bin/bitcore-node start"
+echo "To start the block explorer, from within the hth-explorer directory issue the command:"
+echo " nvm use v4; ./node_modules/bitcore-node-hth/bin/bitcore-node start"
